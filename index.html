@@ -58,8 +58,10 @@ nav.main a:hover{opacity:1;color:var(--teal)}
 @media(max-width:900px){
   nav.main,.hd-cta .btn-ghost{display:none}
   .burger{display:flex}
-  .mobile-menu{display:flex!important}
 }
+.burger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 .mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);z-index:999;flex-direction:column;padding:1rem clamp(1.2rem,4vw,2.5rem) 1.5rem;gap:.2rem}
 .mobile-menu a{padding:.9rem 0;border-bottom:1px solid var(--line);font-weight:600}
 .mobile-menu.open{display:flex}
@@ -476,8 +478,12 @@ footer{background:var(--ink);color:#fff;padding:3rem 0 1.6rem}
 
   /* mobile menu */
   var burger = document.getElementById('burger'), mm = document.getElementById('mobileMenu');
-  burger.addEventListener('click', function(){ mm.classList.toggle('open'); });
-  mm.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ mm.classList.remove('open'); }); });
+  burger.addEventListener('click', function(){
+    var open = mm.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  mm.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ mm.classList.remove('open'); burger.classList.remove('open'); document.body.style.overflow=''; }); });
 
   /* FAQ accordion */
   document.querySelectorAll('.faq-item').forEach(function(item){
