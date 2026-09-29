@@ -80,11 +80,11 @@ nav.main a:hover{opacity:1;color:var(--teal)}
 .hero-mini div b{display:block;font-size:1.5rem;font-weight:800}
 .hero-mini div span{font-size:.82rem;opacity:.6}
 .hero-img{border-radius:26px;overflow:hidden;box-shadow:0 30px 60px rgba(18,33,31,.14);position:relative}
-.hero-img img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/4.4}
+.hero-img img,.hero-img video{width:100%;height:100%;object-fit:cover;aspect-ratio:4/4.4;display:block}
 .hero-badge{position:absolute;left:1.2rem;bottom:1.2rem;background:#fff;border-radius:16px;padding:1rem 1.3rem;display:flex;gap:.9rem;align-items:center;box-shadow:0 14px 30px rgba(18,33,31,.16)}
 .hero-badge .n{font-size:1.7rem;font-weight:800;color:var(--teal)}
 .hero-badge .t{font-size:.82rem;line-height:1.45;opacity:.7}
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-img img{aspect-ratio:16/10}}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-img img,.hero-img video{aspect-ratio:16/10}}
 
 /* ---------- sections ---------- */
 section{padding:clamp(3.5rem,7vw,6rem) 0}
@@ -233,7 +233,7 @@ footer{background:var(--ink);color:#fff;padding:3rem 0 1.6rem}
         </div>
       </div>
       <div class="hero-img" data-reveal>
-        <img src="assets/img/v-hero.jpg" alt="Vitalis Clinic reception">
+        <video src="assets/video/v-hero.mp4" poster="assets/img/v-hero.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Inside Vitalis Clinic"></video>
         <div class="hero-badge"><span class="n">~15 min</span><span class="t">average<br>waiting time</span></div>
       </div>
     </div>
